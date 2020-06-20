@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:copid_tracker/services/copid_api.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_splash_screen/flutter_splash_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
@@ -22,7 +21,7 @@ class _LoadingState extends State<Loading> {
 
   void getCopid() async{
     CopidApi copidApi = new CopidApi();
-    await copidApi.getData('indonesia.json');
+    await copidApi.getData();
     Navigator.pushReplacementNamed(context, '/nav', arguments: {
       'meninggal' : copidApi.meninggal,
       'sembuh' : copidApi.sembuh,

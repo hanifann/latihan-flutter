@@ -12,17 +12,6 @@ class _StatsState extends State<Stats> {
   Map data ={};
   var tgl = DateFormat.yMEd().format(DateTime.now());
 
-  // void getProv() async{
-  //   Provinsi prov = new Provinsi();
-  //   await prov.getData();
-  // }
-  // Provinsi pl = new Provinsi();
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   getProv();
-  // } 
-
   @override
   Widget build(BuildContext context) {
 
