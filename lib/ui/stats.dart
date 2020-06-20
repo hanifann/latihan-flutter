@@ -43,7 +43,7 @@ class _StatsState extends State<Stats> {
                 )
               ),
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
+                padding: const EdgeInsets.fromLTRB(8, 50, 8, 0),
                 child: Container(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +59,7 @@ class _StatsState extends State<Stats> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           Container(
-                            width: 180,                      
+                            width: 160,                      
                             decoration: BoxDecoration(
                               color: Colors.red[200],
                               borderRadius: BorderRadiusDirectional.circular(10)
@@ -92,7 +92,7 @@ class _StatsState extends State<Stats> {
                             )
                           ),
                           Container(
-                            width: 180,                      
+                            width: 160,                      
                             decoration: BoxDecoration(
                               color: Colors.blue[200],
                               borderRadius: BorderRadiusDirectional.circular(10)
@@ -131,7 +131,7 @@ class _StatsState extends State<Stats> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           Container(
-                            width: 180,                      
+                            width: 160,                      
                             decoration: BoxDecoration(
                               color: Colors.green[200],
                               borderRadius: BorderRadiusDirectional.circular(10)
@@ -164,7 +164,7 @@ class _StatsState extends State<Stats> {
                             )
                           ),
                           Container(
-                            width: 180,                      
+                            width: 160,                      
                             decoration: BoxDecoration(
                               color: Colors.orange[200],
                               borderRadius: BorderRadiusDirectional.circular(10)

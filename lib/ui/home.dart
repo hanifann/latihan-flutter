@@ -98,9 +98,8 @@ class _HomeState extends State<Home> {
                   ],),
               ),
             ),
-            SizedBox(height: 30,),
             Container(
-              margin: EdgeInsets.only(left: 30),
+              margin: EdgeInsets.only(left: 30, top: 20),
               child: Text('Pencegahan', 
               style: GoogleFonts.roboto(
                 textStyle: TextStyle(
@@ -166,14 +165,17 @@ class _HomeState extends State<Home> {
                     padding: const EdgeInsets.only(right: 150, top: 10),
                     child: Column(
                       children: <Widget>[
-                        Text('informasi Covid-19?',
-                        style: TextStyle(
-                          fontSize: 23,
-                          fontWeight: FontWeight.bold
+                        Padding(
+                          padding: const EdgeInsets.only(left: 16),
+                          child: Text('informasi Covid-19?',
+                          style: TextStyle(
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold
+                            ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 10, left: 20),
+                          padding: const EdgeInsets.only(top: 10, left: 20,),
                           child: Text('Bagi anda yang mempunyai pertanyaan ataupun membnutukan informasi seputar Covid-19 bisa menghubungi 199 atau mengunjungi website www.covid19.go.id/'),
                         )
                       ],

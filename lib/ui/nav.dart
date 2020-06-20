@@ -47,7 +47,7 @@ class _NavState extends State<Nav> {
     return Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
           key: _bottomNavigationKey,
-          height: 48,
+          height: 50,
           color: Color.fromRGBO(49, 196, 146, 1),
           backgroundColor: Color.fromRGBO(255, 255, 255, 1),
           items: <Widget>[
@@ -61,12 +61,7 @@ class _NavState extends State<Nav> {
             });
           },
         ),
-        body: Container(
-          color: Colors.blueAccent,
-          child: Center(
-            child: _showPage,
-            ),
-          ),
+        body: _showPage
         );
   }
 }
