@@ -11,7 +11,6 @@ class _CobaState extends State<Coba> {
 
     @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData();
   }
@@ -33,7 +32,6 @@ class _CobaState extends State<Coba> {
     data = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
-      backgroundColor: Color.fromRGBO(240, 240, 240, 1),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
