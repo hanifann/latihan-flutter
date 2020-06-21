@@ -14,9 +14,10 @@ class _CobaState extends State<Coba> {
     super.initState();
     getData();
   }
-  Map jsonData;
+ 
   List userData;
   Map data ={};
+  Map jsonData;
 
   Future getData() async {
     http.Response response = await http.get("https://indonesia-covid-19.mathdro.id/api/provinsi");
@@ -219,7 +220,7 @@ class _CobaState extends State<Coba> {
                     child: Column(
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.only(bottom: 10, right: 30),
                           child: Text("${userData[index]["provinsi"]}",
                           style: TextStyle(
                             fontSize: 20.0,
@@ -228,7 +229,7 @@ class _CobaState extends State<Coba> {
                           ),),
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
                             Column(
                               children: <Widget>[
