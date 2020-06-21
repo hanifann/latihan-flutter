@@ -12,14 +12,14 @@ class _CobaState extends State<Coba> {
     @override
   void initState() {
     super.initState();
-    getData();
+    getProvinsi();
   }
  
   List userData;
   Map data ={};
   Map jsonData;
-
-  Future getData() async {
+  
+  Future getProvinsi() async {
     http.Response response = await http.get("https://indonesia-covid-19.mathdro.id/api/provinsi");
     jsonData = json.decode(response.body);
     setState(() {

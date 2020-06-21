@@ -11,7 +11,6 @@ class Nav extends StatefulWidget {
 
 class _NavState extends State<Nav> {
 //State class
-  int _pageIndex = 0;
 
   final Home _home = new Home();
   final Bantuan _bantuan = new Bantuan();

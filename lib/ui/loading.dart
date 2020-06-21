@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:copid_tracker/services/copid_api.dart';
+import 'package:copid_tracker/ui/coba.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -28,7 +29,7 @@ class _LoadingState extends State<Loading> {
       'dirawat' : copidApi.dirawat,
       'terinfeksi' : copidApi.terinfeksi
     });
-  } 
+  }
   @override
   void initState() {
     super.initState();
