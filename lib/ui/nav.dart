@@ -1,6 +1,6 @@
 import 'package:copid_tracker/ui/bantuan.dart';
+import 'package:copid_tracker/ui/coba.dart';
 import 'package:copid_tracker/ui/home.dart';
-import 'package:copid_tracker/ui/stats.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
@@ -14,8 +14,8 @@ class _NavState extends State<Nav> {
   int _pageIndex = 0;
 
   final Home _home = new Home();
-  final Stats _stats = new Stats();
   final Bantuan _bantuan = new Bantuan();
+  final Coba _coba = new Coba();
 
   Widget _showPage = new Home();
 
@@ -25,7 +25,7 @@ class _NavState extends State<Nav> {
         return _home;
         break;
       case 1:
-        return _stats;
+        return _coba;
         break;
       case 2:
       return _bantuan;

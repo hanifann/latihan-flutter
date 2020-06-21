@@ -28,72 +28,81 @@ class CopidApi {
   }
 }
 
+
+
 // class Provinsi {
+//   int fid;
+//   int kodeProvi;
 //   String provinsi;
-//   String confirmed;
-//   String recovered;
-//   String deaths;
-//   String activeCases;
+//   int kasusPosi;
+//   int kasusSemb;
+//   int kasusMeni;
 
 //   Provinsi(
-//       {this.provinsi,
-//       this.confirmed,
-//       this.recovered,
-//       this.deaths,
-//       this.activeCases,});
+//       this.fid,
+//       this.kodeProvi,
+//       this.provinsi,
+//       this.kasusPosi,
+//       this.kasusSemb,
+//       this.kasusMeni);
+// }
 
-//   // Provinsi.fromJson(Map<String, dynamic> json) {
-//   //   provinsi = json['Provinsi'];
-//   //   confirmed = json['Confirmed'];
-//   //   recovered = json['Recovered'];
-//   //   deaths = json['Deaths'];
-//   //   activeCases = json['Active cases'];
-//   // }
+// class Provinsi {
+//   List<Data> data;
 
-//   // factory Provinsi.fromJson(Map<String, dynamic> json){
-//   //   return Provinsi(
-//   //     provinsi: json['Provinsi'],
-//   //     confirmed: json['Confirmed'],
-//   //     recovered: json['Recovered'],
-//   //     deaths: json['Deaths'],
-//   //     activeCases: json['Active cases']
-//   //   );
-//   // }
-//   // @override
-//   // String toString() {
-//   // return 'Provinsi{provinsi: $provinsi, confirmed: $confirmed, recovered: $recovered, deaths: $deaths,activeCases: $activeCases}';
-//   //  }
-//   Future getData() async {
-//     try{
-//       Response data = await get('https://lintangwisesa.github.io/Indonesia-Covid19-Maps/data/provinsi/all.json');
-//       final jsonData = jsonDecode(data.body);
-//       Provinsi sample = Provinsi.fromJson(jsonData[0]);
-//       print(sample.confirmed.toString());
-//     }catch(e){
-//       print(e);
+//   Provinsi({this.data});
+
+//   Provinsi.fromJson(Map<String, dynamic> json) {
+//     if (json['data'] != null) {
+//       data = new List<Data>();
+//       json['data'].forEach((v) {
+//         data.add(new Data.fromJson(v));
+//       });
 //     }
 //   }
 
-//   factory Provinsi.fromJson(Map<String, dynamic> json){
-//     return new Provinsi(
-//       provinsi: json['Provinsi'],
-//       confirmed: json['Confirmed'].toString(),
-//       recovered: json['Recovered'].toString(),
-//       deaths: json['Deaths'].toString(),
-//       activeCases: json['Active cases'].toString()
-//     );
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = new Map<String, dynamic>();
+//     if (this.data != null) {
+//       data['data'] = this.data.map((v) => v.toJson()).toList();
+//     }
+//     return data;
 //   }
 // }
 
-// class ProvList{
-//   final List<Provinsi> prov;
+// class Data {
+//   int fid;
+//   int kodeProvi;
+//   String provinsi;
+//   int kasusPosi;
+//   int kasusSemb;
+//   int kasusMeni;
 
-//   ProvList({this.prov});
+//   Data(
+//       this.fid,
+//       this.kodeProvi,
+//       this.provinsi,
+//       this.kasusPosi,
+//       this.kasusSemb,
+//       this.kasusMeni);
 
-//   factory ProvList.fromJson(List<dynamic> parsedJson){
-//     List<Provinsi> prov = new List<Provinsi>();
-//     prov = parsedJson.map((e) => Provinsi.fromJson(e)).toList();
-//     return new ProvList(prov: prov);
+//   Data.fromJson(Map<String, dynamic> json) {
+//     fid = json['fid'];
+//     kodeProvi = json['kodeProvi'];
+//     provinsi = json['provinsi'];
+//     kasusPosi = json['kasusPosi'];
+//     kasusSemb = json['kasusSemb'];
+//     kasusMeni = json['kasusMeni'];
+//   }
+
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = new Map<String, dynamic>();
+//     data['fid'] = this.fid;
+//     data['kodeProvi'] = this.kodeProvi;
+//     data['provinsi'] = this.provinsi;
+//     data['kasusPosi'] = this.kasusPosi;
+//     data['kasusSemb'] = this.kasusSemb;
+//     data['kasusMeni'] = this.kasusMeni;
+//     return data;
 //   }
 // }
-
