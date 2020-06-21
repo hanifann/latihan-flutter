@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 class Coba extends StatefulWidget {
@@ -32,12 +33,18 @@ class _CobaState extends State<Coba> {
     data = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
+      backgroundColor: Color.fromRGBO(240, 240, 240, 1),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
             height: 370,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/frame.png'),
+                fit: BoxFit.cover
+              ),
               color: Color.fromRGBO(49, 196, 146, 1),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(30),
@@ -205,87 +212,95 @@ class _CobaState extends State<Coba> {
               ),
             ),
           ),
-           Container(
-            height: MediaQuery.of(context).size.height,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 24, 0, 0),
+            child: Text('Statistik per provinsi',
+              style: GoogleFonts.ubuntu(
+                textStyle: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 20
+                )
+              )
+            ),
+          ),
+          Container(
+            height: 421,
             child: ListView.builder(
             scrollDirection: Axis.vertical,
               itemCount: userData == null ? 0 : userData.length,
               itemBuilder: (BuildContext context, int index) {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 10),
-                child: Card(
-                  color: Color.fromRGBO(49, 196, 146, 1),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 10, right: 30),
-                          child: Text("${userData[index]["provinsi"]}",
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.white
-                          ),),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: <Widget>[
-                            Column(
-                              children: <Widget>[
-                                Image.asset('assets/positif.png', scale: 13,),
-                                Text(userData[index]['kasusPosi'].toString(),
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold
-                                ),),
-                                Text('Positif',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold
-                                ),)
-                              ],
-                            ),
-                            Column(
-                              children: <Widget>[
-                                Image.asset('assets/heart.png', scale: 13,),
-                                Text(userData[index]['kasusSemb'].toString(),
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold
-                                ),),
-                                Text('Sembuh',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold
-                                ),)
-                              ],
-                            ),
-                            Column(
-                              children: <Widget>[
-                                Image.asset('assets/close.png', scale: 13,),
-                                Text(userData[index]['kasusMeni'].toString(),
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold
-                                ),),
-                                Text('Meninggal',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold
-                                ),)
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 8, 10, 10),
+                  child: Card(
+                    color: Colors.white,
+                    elevation: 5.0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 10, right: 30),
+                            child: Text("${userData[index]["provinsi"]}",
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.w700,
+                            ),),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Column(
+                                children: <Widget>[
+                                  Image.asset('assets/positif.png', scale: 13,),
+                                  Text(userData[index]['kasusPosi'].toString(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold
+                                  ),),
+                                  Text('Positif',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold
+                                  ),)
+                                ],
+                              ),
+                              Column(
+                                children: <Widget>[
+                                  Image.asset('assets/heart.png', scale: 13,),
+                                  Text(userData[index]['kasusSemb'].toString(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold
+                                  ),),
+                                  Text('Sembuh',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold
+                                  ),)
+                                ],
+                              ),
+                              Column(
+                                children: <Widget>[
+                                  Image.asset('assets/close.png', scale: 13,),
+                                  Text(userData[index]['kasusMeni'].toString(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold
+                                  ),),
+                                  Text('Meninggal',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold
+                                  ),)
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               );
             },
           ),
-        ),
+              ),
         ],
       )
     );
