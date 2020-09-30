@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:intl/intl.dart';
+
 class Coba extends StatefulWidget {
   @override
   _CobaState createState() => _CobaState();
@@ -18,7 +20,7 @@ class _CobaState extends State<Coba> {
   List userData;
   Map data ={};
   Map jsonData;
-  
+  var formatter = NumberFormat('#,###');
   Future getProvinsi() async {
     http.Response response = await http.get("https://indonesia-covid-19.mathdro.id/api/provinsi");
     jsonData = json.decode(response.body);
@@ -233,7 +235,7 @@ class _CobaState extends State<Coba> {
                   padding: const EdgeInsets.fromLTRB(10, 8, 10, 10),
                   child: Card(
                     color: Colors.white,
-                    elevation: 5.0,
+                    elevation: 5,
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Column(
@@ -251,10 +253,11 @@ class _CobaState extends State<Coba> {
                             children: <Widget>[
                               Column(
                                 children: <Widget>[
-                                  Image.asset('assets/positif.png', scale: 13,),
-                                  Text(userData[index]['kasusPosi'].toString(),
+                                  Text(formatter.format(userData[index]['kasusPosi']),
                                   style: TextStyle(
-                                    fontWeight: FontWeight.bold
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromRGBO(245, 30, 74, 1),
+                                    fontSize: 18.0
                                   ),),
                                   Text('Positif',
                                   style: TextStyle(
@@ -264,10 +267,11 @@ class _CobaState extends State<Coba> {
                               ),
                               Column(
                                 children: <Widget>[
-                                  Image.asset('assets/heart.png', scale: 13,),
-                                  Text(userData[index]['kasusSemb'].toString(),
+                                  Text(formatter.format(userData[index]['kasusSemb']),
                                   style: TextStyle(
-                                    fontWeight: FontWeight.bold
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromRGBO(97, 185, 120, 1),
+                                    fontSize: 18.0
                                   ),),
                                   Text('Sembuh',
                                   style: TextStyle(
@@ -277,10 +281,11 @@ class _CobaState extends State<Coba> {
                               ),
                               Column(
                                 children: <Widget>[
-                                  Image.asset('assets/close.png', scale: 13,),
-                                  Text(userData[index]['kasusMeni'].toString(),
+                                  Text(formatter.format(userData[index]['kasusMeni']),
                                   style: TextStyle(
-                                    fontWeight: FontWeight.bold
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0,
+                                    color: Color.fromRGBO(255, 204, 128, 1)
                                   ),),
                                   Text('Meninggal',
                                   style: TextStyle(

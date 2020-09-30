@@ -1,8 +1,8 @@
 import 'package:copid_tracker/ui/bantuan.dart';
 import 'package:copid_tracker/ui/coba.dart';
 import 'package:copid_tracker/ui/home.dart';
+import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class Nav extends StatefulWidget {
   @override
@@ -10,57 +10,55 @@ class Nav extends StatefulWidget {
 }
 
 class _NavState extends State<Nav> {
-//State class
 
-  final Home _home = new Home();
-  final Bantuan _bantuan = new Bantuan();
-  final Coba _coba = new Coba();
+  int _currentIndex = 0;
 
-  Widget _showPage = new Home();
+  final List<Widget> _pages = [
+    Home(),
+    Coba(),
+    Bantuan()
+  ];
 
-  Widget _pageChooser(int page){
-    switch (page) {
-      case 0:
-        return _home;
-        break;
-      case 1:
-        return _coba;
-        break;
-      case 2:
-      return _bantuan;
-      break;
-      default:
-        return new Container(
-          child: new Center(
-            child: new Text(
-              'No Page Found'
-            ),
-          ),
-        );
-    }
+  void onTabTapped(int index){
+    setState(() {
+      _currentIndex = index;
+    });
   }
-  GlobalKey _bottomNavigationKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: CurvedNavigationBar(
-          key: _bottomNavigationKey,
-          height: 50,
-          color: Color.fromRGBO(49, 196, 146, 1),
-          backgroundColor: Color.fromRGBO(255, 255, 255, 1),
-          items: <Widget>[
-            Image.asset('assets/home.png', scale: 20),
-            Image.asset('assets/stonk.png', scale: 20),
-            Image.asset('assets/toa.png', scale: 20),
-          ],
-          onTap: (int tappedIndex) {
-            setState(() {
-              _showPage = _pageChooser(tappedIndex);
-            });
-          },
+      body: _pages[_currentIndex],
+      bottomNavigationBar: FFNavigationBar(
+        theme: FFNavigationBarTheme(
+          barBackgroundColor: Color.fromRGBO(50, 196, 146, 1),
+          selectedItemBackgroundColor: Color.fromRGBO(50, 196, 146, 1),
+          selectedItemBorderColor: Colors.white,
+          unselectedItemIconColor: Colors.white,
+          unselectedItemLabelColor: Colors.white,
+          selectedItemLabelColor: Colors.white
         ),
-        body: _showPage
-        );
+        selectedIndex: _currentIndex,
+        onSelectTab: (index){
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: [
+          FFNavigationBarItem(
+            iconData: Icons.home,
+            label: 'Home',
+          ),
+          FFNavigationBarItem(
+            iconData: Icons.trending_up,
+            label: 'Tracker',
+          ),
+          FFNavigationBarItem(
+            iconData: Icons.help,
+            label: 'Help',
+          )
+        ],
+      )
+    );
   }
 }

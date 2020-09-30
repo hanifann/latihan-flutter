@@ -146,11 +146,11 @@ class _HomeState extends State<Home> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(top: 30, left: 20, right: 20),
+              padding: EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 30.0),
               child: Center(
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 180,
+                  height: 190,
                   decoration: BoxDecoration(
                     color: Colors.amber,
                     image: DecorationImage(
@@ -162,20 +162,17 @@ class _HomeState extends State<Home> {
                     )
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 150, top: 10),
+                    padding: const EdgeInsets.only(top: 10),
                     child: Column(
                       children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(left: 16),
-                          child: Text('informasi Covid-19?',
-                          style: TextStyle(
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold
-                            ),
+                        Text('informasi Covid-19?',
+                        style: TextStyle(
+                          fontSize: 23,
+                          fontWeight: FontWeight.bold
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 10, left: 20,),
+                          padding: const EdgeInsets.only(top: 10, left: 20,right: 100),
                           child: Text('Bagi anda yang mempunyai pertanyaan ataupun membnutukan informasi seputar Covid-19 bisa menghubungi 199 atau mengunjungi website www.covid19.go.id/'),
                         )
                       ],

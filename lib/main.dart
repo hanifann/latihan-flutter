@@ -15,5 +15,8 @@ void main() {
       '/bantuan' : (context) => Bantuan(),
       '/coba' : (context) => Coba()
     },
+    theme: ThemeData(
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+    ),
   ));
 }
